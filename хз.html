@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="мини-памятка-issue-и-pull-request-в-github">Мини-памятка: Issue и Pull Request в GitHub</h2>
+<h3 id="часть-1-issue-—-это-не-просто-«проблема»">Часть 1: Issue — это не просто «проблема»</h3>
+<p>В GitHub <strong>Issue</strong> — это универсальный инструмент для отслеживания задач, обсуждений и ошибок. Это не обязательно «баг»; это может быть запрос функции, вопрос или заметка о необходимости доработки.</p>
+<p><strong>Ключевые компоненты Issue:</strong></p>
+<ul>
+<li><strong>Title (Заголовок)</strong>: Краткое и ёмкое описание сути.</li>
+<li><strong>Description (Описание)</strong>: Подробности. Здесь можно использовать Markdown для форматирования, прикреплять скриншоты и ссылки.</li>
+<li><strong>Assignees (Исполнители)</strong>: Кто отвечает за решение.</li>
+<li><strong>Labels (Метки)</strong>: Категории (например, <code>bug</code>, <code>enhancement</code>, <code>documentation</code>, <code>good first issue</code>). Помогают фильтровать задачи.</li>
+<li><strong>Milestone (Веха)</strong>: Привязка к конкретному сроку или версии проекта.</li>
+<li><strong>Projects (Проекты)</strong>: Канбан-доски для визуализации прогресса.</li>
+</ul>
+<p><strong>Зачем это нужно?</strong> Issue создаёт «единицу работы». Когда вы начинаете что-то делать, лучше сначала создать Issue (или взять существующий), чтобы все видели, что задача в работе, и не дублировали усилия.</p>
+<hr>
+<h3 id="часть-2-pull-request-pr-—-предложение-изменений">Часть 2: Pull Request (PR) — предложение изменений</h3>
+<p><strong>Pull Request</strong> — это запрос на слияние ваших изменений из одной ветки в другую (обычно в <code>main</code>). Это механизм <strong>Code Review</strong> и обсуждения кода перед тем, как он попадёт в основную кодовую базу.</p>
+<h4 id="🔄-полный-цикл-работы-с-pr-workflow">🔄 Полный цикл работы с PR (Workflow)</h4>
+<p><strong>Шаг 1: Подготовка ветки</strong><br>
+Не работайте напрямую в <code>main</code>. Создайте отдельную ветку под конкретную задачу.</p>
+<p><strong>Шаг 2: Коммиты</strong><br>
+Делайте коммиты небольшими и осмысленными. Сообщение коммита должно объяснять <em>что</em> и <em>зачем</em> сделано.</p>
+<p><strong>Шаг 3: Создание PR</strong><br>
+На GitHub появится кнопка <strong>«Compare &amp; pull request»</strong>. Нажмите её.</p>
+<ul>
+<li><strong>Base (Куда)</strong>: Ветка, в которую вы хотите влить изменения (обычно <code>main</code>).</li>
+<li><strong>Compare (Откуда)</strong>: Ваша ветка с изменениями.</li>
+</ul>
+<p><strong>Шаг 4: Заполнение описания</strong><br>
+Это критически важно. Хорошее описание PR должно содержать:</p>
+<ul>
+<li><strong>Что сделано</strong>: Краткое резюме.</li>
+<li><strong>Зачем</strong>: Ссылка на Issue, который это решает.</li>
+<li><strong>Как проверить</strong>: Шаги для тестирования (если применимо).</li>
+<li><strong>Скриншоты</strong>: Если изменения визуальные.</li>
+</ul>
+<p><strong>Шаг 5: Review и Merge</strong><br>
+Ревьюер оставляет комментарии. Вы можете вносить правки в той же ветке и пушить — они автоматически добавятся в PR. После одобрения (Approve) нажимается <strong>Merge</strong>.</p>
+<hr>
+<h3 id="часть-3-магия-связывания-issue-и-pr-keywords">Часть 3: Магия связывания Issue и PR (Keywords)</h3>
+<p>Это самый важный лайфхак. Вы можете автоматически закрыть Issue, когда PR будет смержен, используя специальные ключевые слова в описании PR или в сообщении коммита .</p>
+<p><strong>Синтаксис:</strong></p>
+<ul>
+<li><code>Closes #10</code> (если Issue в том же репозитории)</li>
+<li><code>Fixes owner/repo#100</code> (если Issue в другом репозитории)</li>
+<li><code>Resolves #10, resolves #123</code> (для нескольких задач)</li>
+</ul>
+<p><strong>Важное ограничение:</strong> Ключевые слова срабатывают <strong>только</strong> если PR нацелен на <strong>ветку по умолчанию</strong> (обычно <code>main</code>). Если вы льёте в другую ветку, автоматического закрытия не произойдёт .</p>
+<p><strong>Другие полезные ключевые слова:</strong> <code>close</code>, <code>closes</code>, <code>closed</code>, <code>fix</code>, <code>fixes</code>, <code>fixed</code>, <code>resolve</code>, <code>resolves</code>, <code>resolved</code>. Регистр не важен, двоеточие опционально (<code>Closes: #10</code> тоже работает) .</p>
+<hr>
+<h3 id="часть-4-продвинутые-фишки">Часть 4: Продвинутые фишки</h3>
+<ul>
+<li><strong>Draft PR (Черновик)</strong>: Если работа ещё не готова к ревью, но вы хотите показать прогресс или получить ранний фидбек, создайте Draft PR. Его нельзя смержить, пока вы не нажмёте «Ready for review» .</li>
+<li><strong>Squash and Merge</strong>: Позволяет объединить все коммиты из вашей ветки в один коммит в <code>main</code>. Это делает историю чище, особенно если у вас было много мелких коммитов типа «fix typo» .</li>
+<li><strong>Синхронизация с основной веткой</strong>: Если пока вы работали, <code>main</code> ушёл вперёд, и возник конфликт, обновите свою ветку:</li>
+</ul>
+<hr>
+<h2 id="🎯-5-задач-для-отработки">🎯 5 задач для отработки</h2>
+<p>Ниже — практические сценарии. Выполняйте их в своём тестовом репозитории (можно создать пустой репозиторий на GitHub).</p>
+<h3 id="задача-1-базовый-цикл-issue-→-pr-→-merge">Задача 1: Базовый цикл (Issue → PR → Merge)</h3>
+<ol>
+<li>Создайте в своём репозитории <strong>Issue</strong> с заголовком «Добавить файл README».</li>
+<li>В описании Issue напишите: «Нужно создать <a href="http://README.md">README.md</a> с описанием проекта».</li>
+<li>Создайте ветку <code>feature/add-readme</code>, добавьте файл <code>README.md</code> с любым текстом.</li>
+<li>Запушьте ветку и создайте <strong>Pull Request</strong>.</li>
+<li>В <strong>описании PR</strong> напишите: <code>Closes #1</code> (где 1 — номер вашего Issue).</li>
+<li>Смержите PR. Убедитесь, что Issue автоматически закрылся.</li>
+</ol>
+<h3 id="задача-2-связывание-через-коммит">Задача 2: Связывание через коммит</h3>
+<ol>
+<li>Создайте новый Issue: «Исправить опечатку в README».</li>
+<li>Создайте ветку, исправьте опечатку в README.</li>
+<li>Сделайте коммит с сообщением: <code>Fix typo in README (fixes #2)</code>.</li>
+<li>Запушьте и создайте PR (описание можно оставить пустым).</li>
+<li>Смержите PR. Проверьте, закрылся ли Issue #2 автоматически.</li>
+</ol>
+<h3 id="задача-3-разрешение-конфликта-симуляция">Задача 3: Разрешение конфликта (Симуляция)</h3>
+<ol>
+<li>В своём репозитории создайте файл <code>conflict.txt</code> с текстом <code>Строка A</code> в ветке <code>main</code>.</li>
+<li>Создайте ветку <code>feature/change-a</code>, измените текст на <code>Строка B</code>, закоммитьте, но <strong>не мержите</strong>.</li>
+<li>Вернитесь в <code>main</code>, измените тот же файл на <code>Строка C</code>, закоммитьте.</li>
+<li>Теперь создайте PR из <code>feature/change-a</code> в <code>main</code>. GitHub покажет конфликт.</li>
+<li>Локально в ветке <code>feature/change-a</code> выполните , разрешите конфликт вручную (оставьте нужный текст), сделайте добавление и rebase .</li>
+<li>Запушьте ветку и завершите PR.</li>
+</ol>
+<p>–</p>
+</div>
+</body>
+
+</html>
